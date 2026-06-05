@@ -1,0 +1,58 @@
+{
+  "version": "1",
+  "mdmTypes": ["Patient"],
+
+  "candidateSearchParams": [
+    {
+      "resourceType": "Patient",
+      "searchParams": ["identifier"]
+    },
+    {
+      "resourceType": "Patient",
+      "searchParams": ["birthdate"]
+    }
+  ],
+
+  "candidateFilterSearchParams": [],
+
+  "matchFields": [
+    {
+      "name": "identifier-mrn",
+      "resourceType": "Patient",
+      "matcher": {
+        "algorithm": "IDENTIFIER"
+      },
+      "fhirPath": "Patient.identifier.where(system='http://hospital.smarthealth.org/mrn')"
+    },
+
+    {
+      "name": "family-name-exact",
+      "resourceType": "Patient",
+      "resourcePath": "name.family"
+    },
+
+    {
+      "name": "given-name",
+      "resourceType": "Patient",
+      "resourcePath": "name.given"
+    },
+
+    {
+      "name": "birthdate-exact",
+      "resourceType": "Patient",
+      "resourcePath": "birthDate"
+    }
+  ],
+
+  "matchResultMap": {
+    "identifier-mrn": "MATCH",
+
+    "family-name-exact,birthdate-exact": "POSSIBLE_MATCH",
+
+    "given-name,family-name-exact,birthdate-exact": "POSSIBLE_MATCH"
+  },
+
+  "eidSystems": {
+    "Patient": "http://hospital.smarthealth.org/mrn"
+  }
+}
