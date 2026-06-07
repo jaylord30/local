@@ -9,7 +9,7 @@
     },
     {
       "resourceType": "Patient",
-      "searchParams": ["birthdate"]
+      "searchParams": ["family", "birthdate"]
     }
   ],
 
@@ -17,7 +17,7 @@
 
   "matchFields": [
     {
-      "name": "identifier-mrn",
+      "name": "mrn-exact",
       "resourceType": "Patient",
       "matcher": {
         "algorithm": "IDENTIFIER"
@@ -26,7 +26,16 @@
     },
 
     {
-      "name": "family-name-exact",
+      "name": "national-id",
+      "resourceType": "Patient",
+      "matcher": {
+        "algorithm": "IDENTIFIER"
+      },
+      "fhirPath": "Patient.identifier"
+    },
+
+    {
+      "name": "family-name",
       "resourceType": "Patient",
       "resourcePath": "name.family"
     },
@@ -38,18 +47,29 @@
     },
 
     {
-      "name": "birthdate-exact",
+      "name": "birthdate",
       "resourceType": "Patient",
       "resourcePath": "birthDate"
+    },
+
+    {
+      "name": "gender",
+      "resourceType": "Patient",
+      "resourcePath": "gender"
     }
   ],
 
   "matchResultMap": {
-    "identifier-mrn": "MATCH",
+    "mrn-exact": "MATCH",
+    "national-id": "MATCH",
 
-    "family-name-exact,birthdate-exact": "POSSIBLE_MATCH",
+    "family-name,birthdate": "POSSIBLE_MATCH",
+    "given-name,family-name,birthdate": "POSSIBLE_MATCH",
 
-    "given-name,family-name-exact,birthdate-exact": "POSSIBLE_MATCH"
+    "family-name,given-name,birthdate": "POSSIBLE_MATCH",
+
+    "family-name": "NO_MATCH",
+    "given-name": "NO_MATCH"
   },
 
   "eidSystems": {

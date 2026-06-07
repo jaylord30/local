@@ -13,4 +13,12 @@ hapi:
     fhir_version: R4
     mdm_enabled: true
     mdm_rules_enabled: true
+    implementationguides:
+      ph_core:
+        name: fhir.ph.core
+        version: 0.2.0
+        packageUrl: https://build.fhir.org/ig/UP-Manila-SILab/ph-core/package.tgz
+        reloadExisting: true
+        installMode: STORE_AND_INSTALL
+        fetchDependencies: true
 
