@@ -18,7 +18,14 @@ hapi:
         name: fhir.ph.core
         version: 0.2.0
         packageUrl: https://build.fhir.org/ig/UP-Manila-SILab/ph-core/package.tgz
-        reloadExisting: true
+        reloadExisting: false
+        installMode: STORE_AND_INSTALL
+        fetchDependencies: true
+      ph_erefferal:
+        name: fhir.ph.ereferral
+        version: 0.1.0
+        packageUrl: https://jaylord30.github.io/ph-ereferral/package.tgz
+        reloadExisting: false
         installMode: STORE_AND_INSTALL
         fetchDependencies: true
 
