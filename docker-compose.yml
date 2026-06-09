@@ -12,7 +12,8 @@ services:
       - source: mdm-rules
         target: /app/config/mdm-rules.json
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: postgres
@@ -23,7 +24,13 @@ services:
       POSTGRES_USER: admin
       POSTGRES_DB: hapi
     volumes:
-      - ./hapi.postgress.data:/var/lib/postgresql
+      - ./hapi.postgress.data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d hapi"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
 
 configs:
   hapi:

@@ -21,11 +21,4 @@ hapi:
         reloadExisting: false
         installMode: STORE_AND_INSTALL
         fetchDependencies: true
-      ph_erefferal:
-        name: fhir.ph.ereferral
-        version: 0.1.0
-        packageUrl: https://jaylord30.github.io/ph-ereferral/package.tgz
-        reloadExisting: false
-        installMode: STORE_AND_INSTALL
-        fetchDependencies: true
 
