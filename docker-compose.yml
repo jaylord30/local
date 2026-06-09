@@ -11,6 +11,8 @@ services:
         target: /app/config/application.yaml
       - source: mdm-rules
         target: /app/config/mdm-rules.json
+    volumes:
+      - ./pheref-patched.tgz:/app/config/pheref-patched.tgz:ro
     depends_on:
       db:
         condition: service_healthy

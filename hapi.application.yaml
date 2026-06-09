@@ -21,4 +21,10 @@ hapi:
         reloadExisting: false
         installMode: STORE_AND_INSTALL
         fetchDependencies: true
-
+      ph_erefferal:
+        name: fhir.ph.ereferral
+        version: 0.1.0
+        packageUrl: file:///app/config/pheref-patched.tgz
+        reloadExisting: true
+        installMode: STORE_AND_INSTALL
+        fetchDependencies: true
