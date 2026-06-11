@@ -21,14 +21,14 @@ hapi:
       ph_core:
         name: fhir.ph.core
         version: 0.2.0
-        packageUrl: file:///app/config/ph-core.tgz
+        packageUrl: https://build.fhir.org/ig/UP-Manila-SILab/ph-core/package.tgz
         reloadExisting: true
         installMode: STORE_AND_INSTALL
         fetchDependencies: true
       ph_erefferal:
         name: fhir.ph.ereferral
         version: 0.1.0
-        packageUrl: file:///app/config/pheref-patched.tgz
+        packageUrl: http://build.fhir.org/ig/ph-ereferral-organization/ph-ereferral/package.r4.tgz
         reloadExisting: true
         installMode: STORE_AND_INSTALL
         fetchDependencies: true
