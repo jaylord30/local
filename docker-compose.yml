@@ -12,6 +12,7 @@ services:
       - source: mdm-rules
         target: /app/config/mdm-rules.json
     volumes:
+      - ./ph-core.tgz:/app/config/ph-core.tgz:ro
       - ./pheref-patched.tgz:/app/config/pheref-patched.tgz:ro
     depends_on:
       db:

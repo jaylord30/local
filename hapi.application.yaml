@@ -11,14 +11,18 @@ spring:
 hapi:
   fhir:
     fhir_version: R4
+
+    ig_runtime_upload_enabled: true
+    ig_runtime_reload_enabled: true
+
     mdm_enabled: true
     mdm_rules_enabled: true
     implementationguides:
       ph_core:
         name: fhir.ph.core
         version: 0.2.0
-        packageUrl: https://build.fhir.org/ig/UP-Manila-SILab/ph-core/package.tgz
-        reloadExisting: false
+        packageUrl: file:///app/config/ph-core.tgz
+        reloadExisting: true
         installMode: STORE_AND_INSTALL
         fetchDependencies: true
       ph_erefferal:
