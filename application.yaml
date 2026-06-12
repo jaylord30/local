@@ -15,15 +15,33 @@ spring:
 hapi:
   fhir:
     validate_resource_status_for_package_upload: false
+    mdm_enabled: true
+    mdm_rules_enabled: true
+
     implementationguides:
       ph_core:
-        packageUrl: https://fhirhub.telehealth.ph/IG/PH-Core/package.tgz
+        name: fhir.ph.core
+        version: 0.2.0
         reloadExisting: false
         installMode: STORE_AND_INSTALL
+        packageUrl: https://build.fhir.org/ig/UP-Manila-SILab/ph-core/package.tgz
         fetchDependencies: true
         dependencyExcludes:
            - "hl7.fhir.uv.extensions"
+           - "hl7.fhir.uv.extensions.r4"
            - "hl7.terminology.r5"
+      ph_eref:
+        name: fhir.ph.ereferral
+        version: 0.1.0
+        reloadExisting: false
+        installMode: STORE_AND_INSTALL
+        packageUrl: https://build.fhir.org/ig/ph-ereferral-organization/ph-ereferral/package.tgz
+        fetchDependencies: true
+        dependencyExcludes:
+           - "hl7.fhir.uv.extensions"
+           - "hl7.fhir.uv.extensions.r4"
+           - "hl7.terminology.r5"
+           - "fhir.ph.core"
     logical_urls:
       - http://terminology.hl7.org/*
       - https://terminology.hl7.org/*
