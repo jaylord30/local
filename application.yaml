@@ -1,0 +1,39 @@
+# source of template 
+# https://github.com/hapifhir/hapi-fhir-jpaserver-starter/blob/master/src/main/resources/application.yaml
+# This resource also includes all available configurations and settings
+spring:
+  datasource:
+    url: 'jdbc:postgresql://db:5432/hapi'
+    username: admin
+    password: admin
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate.dialect: ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
+      hibernate.search.enabled: false
+
+hapi:
+  fhir:
+    validate_resource_status_for_package_upload: false
+    implementationguides:
+      ph_core:
+        packageUrl: https://fhirhub.telehealth.ph/IG/PH-Core/package.tgz
+        reloadExisting: false
+        installMode: STORE_AND_INSTALL
+        fetchDependencies: true
+        dependencyExcludes:
+           - "hl7.fhir.uv.extensions"
+           - "hl7.terminology.r5"
+    logical_urls:
+      - http://terminology.hl7.org/*
+      - https://terminology.hl7.org/*
+      - http://snomed.info/*
+      - https://snomed.info/*
+      - http://unitsofmeasure.org/*
+      - https://unitsofmeasure.org/*
+      - http://loinc.org/*
+      - https://loinc.org/*
+    remote_terminology_service:
+      all:
+        system: '*'
+        url: 'https://tx.fhirlab.net/fhir'

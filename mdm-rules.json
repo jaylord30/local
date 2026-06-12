@@ -10,6 +10,10 @@
     {
       "resourceType": "Patient",
       "searchParams": ["family", "birthdate"]
+    },
+    {
+      "resourceType": "Patient",
+      "searchParams": ["name", "birthdate"]
     }
   ],
 
@@ -17,12 +21,12 @@
 
   "matchFields": [
     {
-      "name": "mrn-exact",
+      "name": "philhealth-id",
       "resourceType": "Patient",
       "matcher": {
         "algorithm": "IDENTIFIER"
       },
-      "fhirPath": "Patient.identifier.where(system='http://hospital.smarthealth.org/mrn')"
+      "fhirPath": "Patient.identifier.where(system='https://philhealth.gov.ph')"
     },
 
     {
@@ -31,7 +35,16 @@
       "matcher": {
         "algorithm": "IDENTIFIER"
       },
-      "fhirPath": "Patient.identifier"
+      "fhirPath": "Patient.identifier.where(system='https://psa.gov.ph/philid')"
+    },
+
+    {
+      "name": "facility-mrn",
+      "resourceType": "Patient",
+      "matcher": {
+        "algorithm": "IDENTIFIER"
+      },
+      "fhirPath": "Patient.identifier.where(system='http://hospital.smarthealth.org/mrn')"
     },
 
     {
@@ -53,26 +66,39 @@
     },
 
     {
-      "name": "gender",
+      "name": "sex",
       "resourceType": "Patient",
       "resourcePath": "gender"
     }
   ],
 
+
   "matchResultMap": {
-    "mrn-exact": "MATCH",
+
+    "philhealth-id": "MATCH",
+
     "national-id": "MATCH",
 
+    "facility-mrn": "MATCH",
+
+
     "family-name,birthdate": "POSSIBLE_MATCH",
+
     "given-name,family-name,birthdate": "POSSIBLE_MATCH",
 
     "family-name,given-name,birthdate": "POSSIBLE_MATCH",
 
+    "family-name,given-name,birthdate,gender": "POSSIBLE_MATCH",
+
+
     "family-name": "NO_MATCH",
+
     "given-name": "NO_MATCH"
+
   },
 
+
   "eidSystems": {
-    "Patient": "http://hospital.smarthealth.org/mrn"
+    "Patient": "https://philhealth.gov.ph"
   }
 }
