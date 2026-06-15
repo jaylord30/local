@@ -1,0 +1,24 @@
+{
+  "resourceType": "Patient",
+  "meta": {
+    "profile": [
+      "https://hl7.org.ph/fhir/StructureDefinition/PHCore-Patient"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://nhia.philhealth.gov.ph/phr/identifier/philhealth-id",
+      "value": "12345"
+    }
+  ],
+  "name": [
+    {
+      "family": "Doe",
+      "given": [
+        "John"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1990-01-01"
+}

@@ -17,6 +17,8 @@ hapi:
     validate_resource_status_for_package_upload: false
     mdm_enabled: true
     mdm_rules_enabled: true
+    mdm_rules_json_location: mdm-rules.json
+    custom-interceptor-classes: ca.uhn.fhir.jpa.starter.custom.PHResourceValidationInterceptor
 
     implementationguides:
       ph_core:
