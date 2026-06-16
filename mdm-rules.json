@@ -39,15 +39,6 @@
       }
     },
     {
-      "name": "facility-mrn",
-      "resourceType": "Patient",
-      "resourcePath": "identifier",
-      "matcher": {
-        "algorithm": "IDENTIFIER",
-        "identifierSystem": "http://hospital.smarthealth.org/mrn"
-      }
-    },
-    {
       "name": "family-name",
       "resourceType": "Patient",
       "resourcePath": "name.family",
